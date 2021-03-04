@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<title>Comparing django-columns and django-vertical-multi-columns</title>
+  </head>
+  <body style="font-family:arial,serif" class="container-fluid">
+    <header>
+		<div style="font-size:20px; color:blue;"> Compare django-columns and django-vertical-multi-columns</div>
+		<hr>
+		<p><strong>Click to view:</strong></p>
+		  <ul>
+			<li><a href="{% url "about" %}" target="_self">About the Comparison</a>
+			<li><a href="{% url "audreyview" %}" target="_self">See django-columns in action</a></li>
+            <li><a href="{% url "susanview" %}" target="_self">See django-vertical-multi-columns in action</a></li>
+		   </ul>
+		<p>The source code for this comparison is in <a href="https://github.com/swright573/django-compare-column-packages" target="_blank">GitHub</a>.</p>
+    </header>
+	<hr>
+{% block content %}{% endblock %}
+    <br>
+    <div id="messages">
+        {% for message in messages %}
+        <p style="color: {% if message.tags == 'success' %}green{% elif message.tags == 'error' %}red{% endif %}">
+			{% if 'safe' in message.tags %}{{ message|safe }}{% else %}{{ message }}{% endif %}
+        </p>
+        {% endfor %}
+    </div>
+    <p></p>
+
+  </body>
+</html>

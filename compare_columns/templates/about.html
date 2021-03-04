@@ -1,0 +1,47 @@
+<!doctype html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <div style="color:black;"><strong>About the Comparison</strong></div>
+	<table width="80%" border="0" cellpadding="5" cellspacing="5">
+		<tr>
+			<td colspan="2">
+			<p>Using the same incoming data, I built 2 Django views ... <ul><li>one using Audrey Feldroy's <i><a href="https://github.com/audreyfeldroy/django-columns" target="_blank">django-columns</a></i> package</li><li>the other
+			using Susan Wright's <i><a href="https://github.com/swright573/django-vertical-multi-columns" target="_blank">django-vertical-multi-columns</a></i> package.</li></ul>
+			</p><p>
+			</td>
+		</tr>
+		<tr>
+			<td width=45% style="vertical-align: top; border: 1px solid blue;">
+			<strong>Audrey's approach</strong>
+			<p>
+			<ul>
+			<li>The data is prepared in the view.
+			<li>the data is passed to the template as a list of individual data elements.</li>
+			<li>The template uses a custom template tag provided in Audrey's package to display the data elements in colunms.</li>
+			</ul>
+			</p>
+			</td>
+			<td width=55% style="vertical-align: top; border: 1px solid black;">
+			<strong>Susan's approach</strong>
+			<p>
+			<ul>
+			<li>A child class of one provided in Susan's package is instantiated in the view.
+			<li>The data is prepared by overriding method <i>get_data(self).</i>
+			<li>A method in the parent class creates a list of lists where the "inner" lists are composed of all the elements that should appear in each displayed row.</li>
+			<li>The template processes the data using a typical <i>{% verbatim %}{% for row in rows %) ... {% endfor %}{% endverbatim %}</i> construct.</li>
+			<li>There are 3 options for building the columns. They can be built so:
+				<ul>
+				<li><strong>Even</strong> - Each column in roughly the same length.</li>
+				<li><strong>Criteria</strong> - Using passed methods you write, the columns contain the elements identified by those methods.</li>
+				<li><strong>Defined</strong> - You pass the columns you want displayed as is.</li>
+				</ul>
+			</ul>
+			</p>
+			</td>
+		</tr>
+	</table>
+		
+  </p>
+{% endblock %}

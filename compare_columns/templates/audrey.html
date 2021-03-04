@@ -1,0 +1,22 @@
+<!doctype html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% load columns %}
+
+{% block content %}
+  <p style="font-size:20px;color:red;">django-columns</p>
+
+<div class="container-fluid">
+<div class="row">
+    {% for col in mylist|columns:3 %}
+        <div class="col-md-4">
+            {% for item in col %}
+                <div class="item">{{ item.name }} ({{ item.colour }})</div>
+            {% endfor %}
+        </div><!-- /col-md-4 -->
+    {% endfor %}
+</div><!-- /row -->
+</div>
+  <br>
+{% endblock %}
