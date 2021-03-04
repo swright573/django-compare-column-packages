@@ -2,7 +2,7 @@
 django-compare-column-packages
 ==============================
 
-This compares the packages django-vertical-multi-columns and django-columns. Both do roughly the same thing but in a much different way. To see the comparison in action, clone this repo. Then do the following:
+This compares the packages django-vertical-multi-columns and django-columns. Both do roughly the same thing but in a much different way. To see the comparison in action, do the following:
 
 *Windows commands are shown here. Use the equivalent if you run on Mac or Linux.*
 
