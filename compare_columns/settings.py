@@ -1,18 +1,18 @@
+from pathlib import Path
 import os
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = <your secret key>
+SECRET_KEY = os.environ.get('SECRET_KEY')
+DEBUG = int(os.environ.get("DEBUG", default=0))
 
-DEBUG = 1
-
-ALLOWED_HOSTS = ["localhost"]
-
+os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
 INSTALLED_APPS = ["columns", "vertical_multi_columns"]
 
 ROOT_URLCONF = "compare_columns.urls"
 
+WSGI_APPLICATION = 'compare_columns.wsgi.application'
 
 TEMPLATES = [
     {
